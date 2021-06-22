@@ -1,17 +1,24 @@
+import 'package:authentication/seeaddress.dart';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+
+import 'Account.dart';
 import 'global.dart' as global;
 
 
 class Address extends StatefulWidget {
- 
+ final String hno,hname,loc,city,pin;
+  Address({this.city,this.hname,this.hno,this.loc,this.pin});
 
   @override
   _AddressState createState() => _AddressState();
 }
 
 class _AddressState extends State<Address> {
-
+var hnocontroller = new TextEditingController(text:"");
+var hnamecontroller = new TextEditingController(text:"");
+var loccontroller = new TextEditingController(text:"");
+var pincontroller = new TextEditingController(text:"");
+var citycontroller = new TextEditingController(text:"");
 
 
   @override
@@ -38,6 +45,7 @@ class _AddressState extends State<Address> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: TextFormField(
+                      controller: hnocontroller,
                       onSaved:(value){setState(() {
                         global.housenumber=value;
                       });} ,
@@ -57,6 +65,7 @@ class _AddressState extends State<Address> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: TextFormField(
+                      controller: hnamecontroller,
                       onChanged:(value){setState(() {
                         global.housename=value;
                       });} ,
@@ -72,6 +81,7 @@ class _AddressState extends State<Address> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: TextFormField(
+                      controller: loccontroller,
                       onChanged:(value){setState(() {
                         global.locality=value;
                       });} ,
@@ -85,6 +95,7 @@ class _AddressState extends State<Address> {
                   Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: TextFormField(
+                      controller: citycontroller,
                       onChanged:(value){setState(() {
                         global.city=value;
                       });} ,
@@ -96,8 +107,10 @@ class _AddressState extends State<Address> {
                   ),
 
                   Padding(
+                    
                     padding: const EdgeInsets.all(20.0),
                     child: TextFormField(
+                      controller: pincontroller,
                       onChanged:(value){setState(() {
                         global.pincode=value;
                       });} ,
@@ -107,13 +120,23 @@ class _AddressState extends State<Address> {
                ),
                ),
                   ),
+                  ElevatedButton(onPressed: (){
+                    Navigator.push(
+              context,
+              MaterialPageRoute(builder: (BuildContext context) => seeaddress(value:Address(hno:hnocontroller.text.toString(),hname:hnamecontroller.text.toString(),
+              loc:loccontroller.text.toString(),city:citycontroller.text.toString(),pin: pincontroller.text.toString(),) ),
+              ),
+            );
+                  }, child: Text("add"))
 
-                  
+                 
                 ],
             )
+            
               
         
       ),
     );
   }
 }
+

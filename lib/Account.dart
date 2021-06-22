@@ -1,10 +1,17 @@
 import 'package:authentication/Address.dart';
 import 'package:flutter/material.dart';
+
 import 'package:firebase_auth/firebase_auth.dart';
-import 'global.dart' as global;
+import 'Address.dart';
+
+
 
 
 class Account extends StatefulWidget {
+
+  final Address value;
+
+Account( {Key key,this.value}):super(key:key);
  
 
   @override
@@ -12,6 +19,34 @@ class Account extends StatefulWidget {
 }
 
 class _AccountState extends State<Account> {
+
+  get email => null;
+  get displayName=>null;
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
+  User user;
+  bool isloggedin = false;
+
+  checkAuthentification() async {
+    _auth.authStateChanges().listen((user) {
+      if (user == null) {
+        Navigator.of(context).pushReplacementNamed("start");
+      }
+    });
+  }
+
+  getUser() async {
+    User firebaseUser = _auth.currentUser;
+    await firebaseUser?.reload();
+    firebaseUser = _auth.currentUser;
+
+    if (firebaseUser != null) {
+      setState(() {
+        this.user = firebaseUser;
+        this.isloggedin = true;
+      });
+    }
+  }
 
 
 
@@ -39,7 +74,7 @@ class _AccountState extends State<Account> {
               
              decoration: InputDecoration(
                border : UnderlineInputBorder(),
-               labelText: ' name'
+               labelText: ' rahulr12@gmail.com'
                
                ),
                
@@ -52,7 +87,7 @@ class _AccountState extends State<Account> {
               
              decoration: InputDecoration(
                border : UnderlineInputBorder(),
-               labelText: ' email'
+               labelText: ' Rahul'
                
                ),
                
@@ -61,7 +96,7 @@ class _AccountState extends State<Account> {
                   ),
                   ElevatedButton(onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context){return Address();}));}, child:Text("add address")),
 
-                  Container(child: Text("The address is ${global.housenumber},${global.housename},${global.locality},${global.city},${global.pincode}"))
+                  
                 ],
 
                 

@@ -1,13 +1,16 @@
 
 
-import 'dart:io';
+
 import 'Account.dart';
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
-// import 'package:authentification/Start.dart';
+
+import 'Address.dart';
+import 'Start.dart';
+
 
 
 class HomePage extends StatefulWidget {
@@ -21,6 +24,8 @@ class _HomePageState extends State<HomePage> {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   User user;
   bool isloggedin = false;
+
+
 
   checkAuthentification() async {
     _auth.authStateChanges().listen((user) {
@@ -135,7 +140,7 @@ class _HomePageState extends State<HomePage> {
             leading: Icon(Icons.home_sharp),
             title: Text("add address"),
             onTap: (){
-              Navigator.pop(context);
+              Navigator.push(context,MaterialPageRoute(builder: (context){return Address();}));
             },
           ),
           ListTile(
@@ -144,7 +149,7 @@ class _HomePageState extends State<HomePage> {
             onTap: (){
               showDialog(context: context, builder:(BuildContext context)=>AlertDialog(title: Text("log out"),content: Text("sure?"),
               actions: [
-               ElevatedButton(onPressed:(){exit(0);}, child: Text("yes")),
+               ElevatedButton(onPressed:(){Navigator.pop(context);}, child: Text("yes")),
                ElevatedButton(onPressed:(){Navigator.pop(context);}, child: Text("No")),
 
               ],
@@ -190,6 +195,8 @@ class _HomePageState extends State<HomePage> {
                       ElevatedButton(onPressed: (){
                         callRazorpay();
                       }, child:Text("razorpay"))
+
+                   
                   ],
               ),
               
