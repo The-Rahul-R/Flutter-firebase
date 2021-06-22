@@ -47,19 +47,19 @@ class _StartState extends State<Start> {
                         color: Colors.black),
                     children: <TextSpan>[
                   TextSpan(
-                      text: 'X Groceries',
+                      text: 'Firebase Auth',
                       style: TextStyle(
                           fontSize: 30.0,
                           fontWeight: FontWeight.bold,
-                          color: Colors.orange))
+                          color: Colors.yellow))
                 ])),
             SizedBox(height: 10.0),
             Text(
-              'Fresh Groceries Delivered at your Doorstep',
+              'This is an app for task 3 - Verzeo',
               style: TextStyle(color: Colors.black),
             ),
             SizedBox(height: 30.0),
-            Row(
+            Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 RaisedButton(
@@ -82,7 +82,7 @@ class _StartState extends State<Start> {
                     padding: EdgeInsets.only(left: 30, right: 30),
                     onPressed: navigateToRegister,
                     child: Text(
-                      'REGISTER',
+                      'SIGN UP',
                       style: TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

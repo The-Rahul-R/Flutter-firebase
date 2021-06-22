@@ -1,3 +1,4 @@
+import 'package:authentication/Start.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -132,7 +133,8 @@ class _SignUpState extends State<SignUp> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
                       ),
-                    )
+                    ),
+                     ElevatedButton(onPressed:(){ Navigator.push(context,MaterialPageRoute(builder: (context){return Start();}));}, child: Text("go to Mainpage")),
                   ],
                 ),
               ),
