@@ -69,6 +69,8 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightGreenAccent,
+
         body: SingleChildScrollView(
       child: Container(
         child: Column(
@@ -77,6 +79,7 @@ class _LoginState extends State<Login> {
               height: 400,
               child: Image(
                 image: AssetImage("images/login.png"),
+                
                 fit: BoxFit.contain,
               ),
             ),

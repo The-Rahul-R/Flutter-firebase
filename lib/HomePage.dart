@@ -9,6 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 import 'Address.dart';
+import 'SignUp.dart';
 import 'Start.dart';
 
 
@@ -149,7 +150,7 @@ class _HomePageState extends State<HomePage> {
             onTap: (){
               showDialog(context: context, builder:(BuildContext context)=>AlertDialog(title: Text("log out"),content: Text("sure?"),
               actions: [
-               ElevatedButton(onPressed:(){Navigator.pop(context);}, child: Text("yes")),
+               ElevatedButton(onPressed:(){Navigator.push(context,MaterialPageRoute(builder: (context){return Start();}));}, child: Text("yes")),
                ElevatedButton(onPressed:(){Navigator.pop(context);}, child: Text("No")),
 
               ],

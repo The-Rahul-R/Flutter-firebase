@@ -35,12 +35,12 @@ class _AccountState extends State<seeaddress> {
               
               centerTitle: true,
             backgroundColor: Colors.amber,
-              title: const Text('Accounts'),
+              title: const Text('Address'),
             ),
             body: Column(
              
               children: [
-                Image.network('https://www.wozur.com/wozur/public/user_files/images/Login.png',width:100,height: 200),
+                Image.network('https://letterhub.com/wp-content/uploads/2018/02/location-1200x675.jpg',width:100,height: 200),
                 
 
                   Container(child: Text("The address is ${widget.value.hno},${widget.value.hname},${widget.value.loc},${widget.value.city},${widget.value.pin}"))

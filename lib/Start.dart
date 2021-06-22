@@ -26,6 +26,7 @@ class _StartState extends State<Start> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+       backgroundColor: Colors.blue,
       body: Container(
         child: Column(
           children: <Widget>[
@@ -76,7 +77,7 @@ class _StartState extends State<Start> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.orange),
+                    color: Colors.red),
                 SizedBox(width: 20.0),
                 RaisedButton(
                     padding: EdgeInsets.only(left: 30, right: 30),
@@ -92,7 +93,7 @@ class _StartState extends State<Start> {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    color: Colors.orange),
+                    color: Colors.red),
               ],
             ),
             SizedBox(height: 20.0),
