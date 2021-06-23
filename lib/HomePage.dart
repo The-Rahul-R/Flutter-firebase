@@ -9,8 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 import 'Address.dart';
-import 'SignUp.dart';
-import 'Start.dart';
+
 
 
 
@@ -48,7 +47,12 @@ class _HomePageState extends State<HomePage> {
       });
     }
   }
+  
+  signOut() async {
+    _auth.signOut();
 
+    
+  }
 
 
   @override
@@ -111,6 +115,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.yellow,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.amber,
@@ -150,7 +155,7 @@ class _HomePageState extends State<HomePage> {
             onTap: (){
               showDialog(context: context, builder:(BuildContext context)=>AlertDialog(title: Text("log out"),content: Text("sure?"),
               actions: [
-               ElevatedButton(onPressed:(){Navigator.push(context,MaterialPageRoute(builder: (context){return Start();}));}, child: Text("yes")),
+               ElevatedButton(onPressed:signOut, child: Text("yes")),
                ElevatedButton(onPressed:(){Navigator.pop(context);}, child: Text("No")),
 
               ],
@@ -181,7 +186,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 300,
                     child: Image(
-                      image: AssetImage("images/eagle1.png"),
+                      image: NetworkImage("https://c4.wallpaperflare.com/wallpaper/309/848/1021/5k-iron-man-low-poly-yellow-background-wallpaper-thumb.jpg"),
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -193,6 +198,8 @@ class _HomePageState extends State<HomePage> {
                               TextStyle(fontSize: 25.0, fontWeight: FontWeight.bold,color: Colors.red),
                         ),
                       ),
+
+                      SizedBox(height:70),
                       ElevatedButton(onPressed: (){
                         callRazorpay();
                       }, child:Text("razorpay"))

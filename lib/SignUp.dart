@@ -70,7 +70,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       backgroundColor: Colors.lightGreen,
+       backgroundColor: Colors.blueAccent,
         body: SingleChildScrollView(
       child: Container(
         child: Column(
@@ -78,7 +78,7 @@ class _SignUpState extends State<SignUp> {
             Container(
               height: 400,
               child: Image(
-                image: AssetImage("images/login.png"),
+                image: NetworkImage("https://c4.wallpaperflare.com/wallpaper/58/894/391/avengers-age-of-ultron-black-blue-black-wallpaper-preview.jpg"),
                 fit: BoxFit.contain,
               ),
             ),
@@ -88,38 +88,47 @@ class _SignUpState extends State<SignUp> {
                 child: Column(
                   children: <Widget>[
                     Container(
-                      child: TextFormField(
-                          validator: (input) {
-                            if (input.isEmpty) return 'Enter Name';
-                          },
-                          decoration: InputDecoration(
-                            labelText: 'Name',
-                            prefixIcon: Icon(Icons.person),
-                          ),
-                          onSaved: (input) => _name = input),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: TextFormField(
+                            validator: (input) {
+                              if (input.isEmpty) return 'Enter Name';
+                            },
+                            decoration: InputDecoration(
+                              labelText: 'Name',
+                              prefixIcon: Icon(Icons.person),
+                            ),
+                            onSaved: (input) => _name = input),
+                      ),
                     ),
                     Container(
-                      child: TextFormField(
-                          validator: (input) {
-                            if (input.isEmpty) return 'Enter Email';
-                          },
-                          decoration: InputDecoration(
-                              labelText: 'Email',
-                              prefixIcon: Icon(Icons.email)),
-                          onSaved: (input) => _email = input),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: TextFormField(
+                            validator: (input) {
+                              if (input.isEmpty) return 'Enter Email';
+                            },
+                            decoration: InputDecoration(
+                                labelText: 'Email',
+                                prefixIcon: Icon(Icons.email)),
+                            onSaved: (input) => _email = input),
+                      ),
                     ),
                     Container(
-                      child: TextFormField(
-                          validator: (input) {
-                            if (input.length < 6)
-                              return 'Provide Minimum 6 Character';
-                          },
-                          decoration: InputDecoration(
-                            labelText: 'Password',
-                            prefixIcon: Icon(Icons.lock),
-                          ),
-                          obscureText: true,
-                          onSaved: (input) => _password = input),
+                      child: Padding(
+                        padding: const EdgeInsets.all(10.0),
+                        child: TextFormField(
+                            validator: (input) {
+                              if (input.length < 6)
+                                return 'Provide Minimum 6 Character';
+                            },
+                            decoration: InputDecoration(
+                              labelText: 'Password',
+                              prefixIcon: Icon(Icons.lock),
+                            ),
+                            obscureText: true,
+                            onSaved: (input) => _password = input),
+                      ),
                     ),
                     SizedBox(height: 20),
                     RaisedButton(
@@ -130,7 +139,7 @@ class _SignUpState extends State<SignUp> {
                               color: Colors.white,
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold)),
-                      color: Colors.orange,
+                      color: Colors.purpleAccent,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(20.0),
                       ),

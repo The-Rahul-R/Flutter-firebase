@@ -40,10 +40,11 @@ class _AccountState extends State<seeaddress> {
             body: Column(
              
               children: [
-                Image.network('https://letterhub.com/wp-content/uploads/2018/02/location-1200x675.jpg',width:100,height: 200),
+                Image.network('https://letterhub.com/wp-content/uploads/2018/02/location-1200x675.jpg',width:500,height: 500),
                 
 
-                  Container(child: Text("The address is ${widget.value.hno},${widget.value.hname},${widget.value.loc},${widget.value.city},${widget.value.pin}"))
+                  Container(child: Text("The address is ${widget.value.hno} ,${widget.value.hname}, ${widget.value.loc}, ${widget.value.city}, ${widget.value.pin}",
+                  style: TextStyle(fontSize: 20,color: Colors.indigoAccent),))
                 ],
 
                 

@@ -78,7 +78,7 @@ class _LoginState extends State<Login> {
             Container(
               height: 400,
               child: Image(
-                image: AssetImage("images/login.png"),
+                image: NetworkImage("https://wallpapercave.com/wp/wp4686001.jpg",),
                 
                 fit: BoxFit.contain,
               ),
@@ -129,6 +129,8 @@ class _LoginState extends State<Login> {
                 ),
               ),
             ),
+
+            SizedBox(height:50),
             GestureDetector(
               child: Text('Create an Account?'),
               onTap: navigateToSignUp,

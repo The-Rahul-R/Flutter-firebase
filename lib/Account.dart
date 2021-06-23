@@ -20,8 +20,8 @@ Account( {Key key,this.value}):super(key:key);
 
 class _AccountState extends State<Account> {
 
-  get email => null;
-  get displayName=>null;
+
+
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
   User user;
@@ -47,7 +47,12 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
       });
     }
   }
-
+@override
+  void initState() {
+    super.initState();
+    this.checkAuthentification();
+    this.getUser();
+  }
 
 
   @override
@@ -57,43 +62,58 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
           debugShowCheckedModeBanner: false,
           title: 'Welcome',
           home: Scaffold(
+            backgroundColor: Colors.red,
             appBar: AppBar(
               leading: IconButton(icon: Icon(Icons.arrow_back),onPressed:(){Navigator.pop(context);}),
               
               centerTitle: true,
-            backgroundColor: Colors.amber,
+            backgroundColor: Colors.redAccent,
               title: const Text('Accounts'),
             ),
             body: Column(
              
               children: [
-                Image.network('https://www.wozur.com/wozur/public/user_files/images/Login.png',width:100,height: 200),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: TextFormField(
-              
-             decoration: InputDecoration(
-               border : UnderlineInputBorder(),
-               labelText: ' rahulr12@gmail.com'
-               
-               ),
-               
-              
-                  ),
+                Image.network('https://www.wozur.com/wozur/public/user_files/images/Login.png',width:300,height: 300),
+                Card(
+              color: Colors.white,
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              child: ListTile(
+                leading: Icon(
+                  Icons.person_pin,
+                  color: Colors.teal,
                 ),
-                  Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: TextFormField(
-              
-             decoration: InputDecoration(
-               border : UnderlineInputBorder(),
-               labelText: ' Rahul'
-               
-               ),
-               
-              
-                ),
+                title: Text(
+                  '${user.displayName}',
+                  style: TextStyle(
+                    color: Colors.teal.shade900,
+                    fontSize: 20.0,
+
+
                   ),
+
+                ),
+              ),
+            ),
+                  Card(
+              color: Colors.white,
+              margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              child: ListTile(
+                leading: Icon(
+                  Icons.email,
+                  color: Colors.teal,
+                ),
+                title: Text(
+                  '${user.email}',
+                  style: TextStyle(
+                    color: Colors.teal.shade900,
+                    fontSize: 15.0,
+
+
+                  ),
+
+                ),
+              ),
+            ),
                   ElevatedButton(onPressed: (){Navigator.push(context,MaterialPageRoute(builder: (context){return Address();}));}, child:Text("add address")),
 
                   

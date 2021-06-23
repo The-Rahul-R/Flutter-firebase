@@ -1,7 +1,7 @@
 import 'package:authentication/seeaddress.dart';
 import 'package:flutter/material.dart';
 
-import 'Account.dart';
+
 import 'global.dart' as global;
 
 
